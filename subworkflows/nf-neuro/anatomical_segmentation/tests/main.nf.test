@@ -43,7 +43,8 @@ nextflow_workflow {
                         file("\${test_data_directory}/T1w.nii.gz", checkIfExists: true),
                         []
                     ]}
-                input[1] = []
+                input[1] = Channel.empty()
+                input[2] = Channel.empty()
                 """
             }
         }
@@ -66,14 +67,51 @@ nextflow_workflow {
                         t1w: it.simpleName == "T1w"
                         freesurfer: it.simpleName == "freesurfer_nifti"
                     }
-                input[0] = []
+                input[0] = Channel.empty()
                 input[1] = ch_split_test_data.freesurfer.map{
                     test_data_directory -> [
-                        [ id:'test', single_end:false ], // meta map
+                        [ id:'test' ], // meta map
                         file("\${test_data_directory}/aparc+aseg.nii.gz", checkIfExists: true),
                         file("\${test_data_directory}/wmparc.nii.gz", checkIfExists: true),
                         []
                     ]}
+                input[2] = Channel.empty()
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert workflow.success },
+                { assert snapshot(workflow.out).match() }
+            )
+        }
+    }
+
+    test("anatomical_segmentation - both") {
+
+        when {
+            workflow {
+                """
+                ch_split_test_data = LOAD_DATA.out.test_data_directory
+                    .branch{
+                        t1w: it.simpleName == "T1w"
+                        freesurfer: it.simpleName == "freesurfer_nifti"
+                    }
+                input[0] = ch_split_test_data.t1w.map{
+                    test_data_directory -> [
+                        [ id:'test' ],
+                        file("\${test_data_directory}/T1w.nii.gz", checkIfExists: true),
+                        []
+                    ]}
+                input[1] = ch_split_test_data.freesurfer.map{
+                    test_data_directory -> [
+                        [ id:'test' ], // meta map
+                        file("\${test_data_directory}/aparc+aseg.nii.gz", checkIfExists: true),
+                        file("\${test_data_directory}/wmparc.nii.gz", checkIfExists: true),
+                        []
+                    ]}
+                input[2] = Channel.empty()
                 """
             }
         }
