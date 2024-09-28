@@ -55,7 +55,7 @@ nextflow_process {
                 ch_mask = ch_split_test_data.segmentation.map{
                     test_data_directory -> [
                         [ id:'test' ],
-                        file("\${test_data_directory}/brainmask/slices/sagittal.nii.gz")
+                        file("\${test_data_directory}/brainmask/brainmask.nii.gz")
                     ]
                 }
                 ch_metrics = ch_split_test_data.dti.map{
@@ -114,7 +114,7 @@ nextflow_process {
                 ch_mask = ch_split_test_data.segmentation.map{
                     test_data_directory -> [
                         [ id:'test' ],
-                        file("\${test_data_directory}/brainmask/slices/sagittal.nii.gz")
+                        file("\${test_data_directory}/brainmask/brainmask.nii.gz")
                     ]
                 }
                 ch_metrics = ch_split_test_data.dti.map{
@@ -173,7 +173,7 @@ nextflow_process {
                 ch_mask = ch_split_test_data.segmentation.map{
                     test_data_directory -> [
                         [ id:'test' ],
-                        file("\${test_data_directory}/brainmask/slices/sagittal.nii.gz")
+                        file("\${test_data_directory}/brainmask/brainmask.nii.gz")
                     ]
                 }
                 ch_metrics = ch_split_test_data.dti.map{
@@ -232,7 +232,7 @@ nextflow_process {
                 ch_mask = ch_split_test_data.segmentation.map{
                     test_data_directory -> [
                         [ id:'test' ],
-                        file("\${test_data_directory}/brainmask/slices/sagittal.nii.gz")
+                        file("\${test_data_directory}/brainmask/brainmask.nii.gz")
                     ]
                 }
                 ch_metrics = ch_split_test_data.dti.map{

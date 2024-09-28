@@ -63,10 +63,10 @@
             }
         ],
         "meta": {
-            "nf-test": "0.8.4",
-            "nextflow": "23.10.1"
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
         },
-        "timestamp": "2024-05-14T19:15:29.241456"
+        "timestamp": "2024-09-27T17:17:09.66831"
     },
     "reconst - diffusivitypriors - compute_priors": {
         "content": [
@@ -130,9 +130,9 @@
             }
         ],
         "meta": {
-            "nf-test": "0.8.4",
-            "nextflow": "23.10.1"
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
         },
-        "timestamp": "2024-05-14T19:15:10.632882"
+        "timestamp": "2024-09-27T17:17:01.675881"
     }
 }

@@ -28,7 +28,7 @@
                         {
                             "id": "test"
                         },
-                        "test__fodf.nii.gz:md5,0d20f9140a2539acf04f227f4073362e"
+                        "test__fodf.nii.gz:md5,f94c6151c96a7142358b733db1dae6ff"
                     ]
                 ],
                 "1": [
@@ -39,7 +39,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_total.nii.gz:md5,6ff06ef83beac5f22225445de83bbc8a"
+                        "test__afd_total.nii.gz:md5,dd6ee8c2639d5c42b3fb76b3e16480d3"
                     ]
                 ],
                 "11": [
@@ -47,7 +47,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_sum.nii.gz:md5,f7c7d9166379ca602c5cac74b138b55b"
+                        "test__afd_sum.nii.gz:md5,38c51a26430e5d863e80fe123c2f5d94"
                     ]
                 ],
                 "12": [
@@ -55,7 +55,7 @@
                         {
                             "id": "test"
                         },
-                        "test__nufo.nii.gz:md5,58eb918b60b901004545dec762adef29"
+                        "test__nufo.nii.gz:md5,287e21043e072ff6e1da5c4bba63a2a0"
                     ]
                 ],
                 "13": [
@@ -81,7 +81,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peaks.nii.gz:md5,79a741363af52b452b5a81a65ffa7966"
+                        "test__peaks.nii.gz:md5,c43c6b9ff76e8b1f57a73639174f8c2b"
                     ]
                 ],
                 "7": [
@@ -89,7 +89,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_values.nii.gz:md5,ba52126234a08bfbab961e9beb669109"
+                        "test__peak_values.nii.gz:md5,acacabfbd7e211331b842c8cc80652d2"
                     ]
                 ],
                 "8": [
@@ -97,7 +97,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_indices.nii.gz:md5,b5cb1fafbf9169db3225d5881627f4e1"
+                        "test__peak_indices.nii.gz:md5,a15cc555ac28383b49a5a880821f7e32"
                     ]
                 ],
                 "9": [
@@ -105,7 +105,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_max.nii.gz:md5,c24984313b5bbcec8010a77dd21b6270"
+                        "test__afd_max.nii.gz:md5,d62afc8746941d0a2ad65c67c1d28aab"
                     ]
                 ],
                 "afd_max": [
@@ -113,7 +113,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_max.nii.gz:md5,c24984313b5bbcec8010a77dd21b6270"
+                        "test__afd_max.nii.gz:md5,d62afc8746941d0a2ad65c67c1d28aab"
                     ]
                 ],
                 "afd_sum": [
@@ -121,7 +121,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_sum.nii.gz:md5,f7c7d9166379ca602c5cac74b138b55b"
+                        "test__afd_sum.nii.gz:md5,38c51a26430e5d863e80fe123c2f5d94"
                     ]
                 ],
                 "afd_total": [
@@ -129,7 +129,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_total.nii.gz:md5,6ff06ef83beac5f22225445de83bbc8a"
+                        "test__afd_total.nii.gz:md5,dd6ee8c2639d5c42b3fb76b3e16480d3"
                     ]
                 ],
                 "csf_fodf": [
@@ -140,7 +140,7 @@
                         {
                             "id": "test"
                         },
-                        "test__fodf.nii.gz:md5,0d20f9140a2539acf04f227f4073362e"
+                        "test__fodf.nii.gz:md5,f94c6151c96a7142358b733db1dae6ff"
                     ]
                 ],
                 "gm_fodf": [
@@ -151,7 +151,7 @@
                         {
                             "id": "test"
                         },
-                        "test__nufo.nii.gz:md5,58eb918b60b901004545dec762adef29"
+                        "test__nufo.nii.gz:md5,287e21043e072ff6e1da5c4bba63a2a0"
                     ]
                 ],
                 "peak_indices": [
@@ -159,7 +159,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_indices.nii.gz:md5,b5cb1fafbf9169db3225d5881627f4e1"
+                        "test__peak_indices.nii.gz:md5,a15cc555ac28383b49a5a880821f7e32"
                     ]
                 ],
                 "peak_values": [
@@ -167,7 +167,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_values.nii.gz:md5,ba52126234a08bfbab961e9beb669109"
+                        "test__peak_values.nii.gz:md5,acacabfbd7e211331b842c8cc80652d2"
                     ]
                 ],
                 "peaks": [
@@ -175,7 +175,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peaks.nii.gz:md5,79a741363af52b452b5a81a65ffa7966"
+                        "test__peaks.nii.gz:md5,c43c6b9ff76e8b1f57a73639174f8c2b"
                     ]
                 ],
                 "vent_mask": [
@@ -196,10 +196,10 @@
             }
         ],
         "meta": {
-            "nf-test": "0.9.0-rc1",
-            "nextflow": "24.04.2"
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
         },
-        "timestamp": "2024-07-29T02:17:29.361083"
+        "timestamp": "2024-09-28T04:32:21.031408357"
     },
     "reconst - fodf_no_metrics": {
         "content": [
@@ -209,7 +209,7 @@
                         {
                             "id": "test"
                         },
-                        "test__fodf.nii.gz:md5,0d20f9140a2539acf04f227f4073362e"
+                        "test__fodf.nii.gz:md5,f94c6151c96a7142358b733db1dae6ff"
                     ]
                 ],
                 "1": [
@@ -271,7 +271,7 @@
                         {
                             "id": "test"
                         },
-                        "test__fodf.nii.gz:md5,0d20f9140a2539acf04f227f4073362e"
+                        "test__fodf.nii.gz:md5,f94c6151c96a7142358b733db1dae6ff"
                     ]
                 ],
                 "gm_fodf": [
@@ -307,10 +307,10 @@
             }
         ],
         "meta": {
-            "nf-test": "0.9.0-rc1",
-            "nextflow": "24.04.2"
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
         },
-        "timestamp": "2024-07-29T02:18:27.122445"
+        "timestamp": "2024-09-28T04:34:12.890732726"
     },
     "reconst - fodf_with_shells": {
         "content": [
@@ -320,7 +320,7 @@
                         {
                             "id": "test"
                         },
-                        "test__fodf.nii.gz:md5,33c18929909962041e292254c7c7a46d"
+                        "test__fodf.nii.gz:md5,0119a6434e7071e79c6a7e0ed3efc9ff"
                     ]
                 ],
                 "1": [
@@ -331,7 +331,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_total.nii.gz:md5,33ac1902cc57d8a6f814112456b85e13"
+                        "test__afd_total.nii.gz:md5,dd31d2dbc26cad336b9bebb50859c455"
                     ]
                 ],
                 "11": [
@@ -339,7 +339,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_sum.nii.gz:md5,8f6d6fd11de99e36f8c3398690275fa9"
+                        "test__afd_sum.nii.gz:md5,8f49b22752893a853a370febbb5ef20e"
                     ]
                 ],
                 "12": [
@@ -347,7 +347,7 @@
                         {
                             "id": "test"
                         },
-                        "test__nufo.nii.gz:md5,ef1ea08ec44bc1a594e1e4fc040dfd90"
+                        "test__nufo.nii.gz:md5,ca61063e3a0bd3298d04036ac68550be"
                     ]
                 ],
                 "13": [
@@ -373,7 +373,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peaks.nii.gz:md5,f067cca7d35379e288e0338869205e0d"
+                        "test__peaks.nii.gz:md5,ab6c5babe490dce41364254bb0922d6a"
                     ]
                 ],
                 "7": [
@@ -381,7 +381,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_values.nii.gz:md5,c6df8d7296b891932205cdd2e886d377"
+                        "test__peak_values.nii.gz:md5,529a435abffdea180ff6cbbf68938399"
                     ]
                 ],
                 "8": [
@@ -389,7 +389,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_indices.nii.gz:md5,6fb7fcdf24c2871fff856511b6a50205"
+                        "test__peak_indices.nii.gz:md5,b8691332d9e098803df2e504cef769c5"
                     ]
                 ],
                 "9": [
@@ -397,7 +397,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_max.nii.gz:md5,a1ab037d98f5b6ad40d82a8614609451"
+                        "test__afd_max.nii.gz:md5,40d9d41ac1e6fd13d9a78807713ec282"
                     ]
                 ],
                 "afd_max": [
@@ -405,7 +405,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_max.nii.gz:md5,a1ab037d98f5b6ad40d82a8614609451"
+                        "test__afd_max.nii.gz:md5,40d9d41ac1e6fd13d9a78807713ec282"
                     ]
                 ],
                 "afd_sum": [
@@ -413,7 +413,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_sum.nii.gz:md5,8f6d6fd11de99e36f8c3398690275fa9"
+                        "test__afd_sum.nii.gz:md5,8f49b22752893a853a370febbb5ef20e"
                     ]
                 ],
                 "afd_total": [
@@ -421,7 +421,7 @@
                         {
                             "id": "test"
                         },
-                        "test__afd_total.nii.gz:md5,33ac1902cc57d8a6f814112456b85e13"
+                        "test__afd_total.nii.gz:md5,dd31d2dbc26cad336b9bebb50859c455"
                     ]
                 ],
                 "csf_fodf": [
@@ -432,7 +432,7 @@
                         {
                             "id": "test"
                         },
-                        "test__fodf.nii.gz:md5,33c18929909962041e292254c7c7a46d"
+                        "test__fodf.nii.gz:md5,0119a6434e7071e79c6a7e0ed3efc9ff"
                     ]
                 ],
                 "gm_fodf": [
@@ -443,7 +443,7 @@
                         {
                             "id": "test"
                         },
-                        "test__nufo.nii.gz:md5,ef1ea08ec44bc1a594e1e4fc040dfd90"
+                        "test__nufo.nii.gz:md5,ca61063e3a0bd3298d04036ac68550be"
                     ]
                 ],
                 "peak_indices": [
@@ -451,7 +451,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_indices.nii.gz:md5,6fb7fcdf24c2871fff856511b6a50205"
+                        "test__peak_indices.nii.gz:md5,b8691332d9e098803df2e504cef769c5"
                     ]
                 ],
                 "peak_values": [
@@ -459,7 +459,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peak_values.nii.gz:md5,c6df8d7296b891932205cdd2e886d377"
+                        "test__peak_values.nii.gz:md5,529a435abffdea180ff6cbbf68938399"
                     ]
                 ],
                 "peaks": [
@@ -467,7 +467,7 @@
                         {
                             "id": "test"
                         },
-                        "test__peaks.nii.gz:md5,f067cca7d35379e288e0338869205e0d"
+                        "test__peaks.nii.gz:md5,ab6c5babe490dce41364254bb0922d6a"
                     ]
                 ],
                 "vent_mask": [
@@ -488,9 +488,9 @@
             }
         ],
         "meta": {
-            "nf-test": "0.9.0-rc1",
-            "nextflow": "24.04.2"
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
         },
-        "timestamp": "2024-07-29T02:18:00.792815"
+        "timestamp": "2024-09-28T04:33:32.475540561"
     }
 }

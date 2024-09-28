@@ -101,8 +101,8 @@ process RECONST_FODF {
     then
 
         scil_fodf_max_in_ventricles.py ${prefix}__fodf.nii.gz $fa $md \
-        --max_value_output ventricles_fodf_max_value.txt $sh_basis \
-        $fa_threshold $md_threshold $vent_mask -f
+            --max_value_output ventricles_fodf_max_value.txt $sh_basis \
+            $fa_threshold $md_threshold $vent_mask -f
 
         echo "Maximal peak value in ventricle in file : \$(cat ventricles_fodf_max_value.txt)"
 
