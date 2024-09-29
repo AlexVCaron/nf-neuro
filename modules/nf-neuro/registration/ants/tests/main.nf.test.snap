@@ -8,7 +8,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__warped.nii.gz:md5,131b15551e4c2135b5d2beaf99b77b53"
+                        "test__warped.nii.gz:md5,0a168333223cee2bec647457645ec0fb"
                     ]
                 ],
                 "1": [
@@ -18,8 +18,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0Warp.nii.gz:md5,8386e2afbc21d754877bcd75fc8edefa",
-                            "test__output1GenericAffine.mat:md5,95fc005e7f2b4de689f3246b14b652c0"
+                            "test__output0Warp.nii.gz:md5,416be1ff76417ee4cdbfe12f0926854b",
+                            "test__output1GenericAffine.mat:md5,99d55c24b7538e6b751e333511378fcb"
                         ]
                     ]
                 ],
@@ -30,8 +30,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0InverseAffine.mat:md5,aa2254ecad64dcf4e931f3a6f6420039",
-                            "test__output1InverseWarp.nii.gz:md5,6cfc53dc70a840be349f75131c82ec88"
+                            "test__output0InverseAffine.mat:md5,8c1de5c088e140e077398807eed2f579",
+                            "test__output1InverseWarp.nii.gz:md5,f056ff8c7dd2db3175fec74ea2485e7b"
                         ]
                     ]
                 ],
@@ -44,7 +44,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__warped.nii.gz:md5,131b15551e4c2135b5d2beaf99b77b53"
+                        "test__warped.nii.gz:md5,0a168333223cee2bec647457645ec0fb"
                     ]
                 ],
                 "transfo_image": [
@@ -54,8 +54,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0Warp.nii.gz:md5,8386e2afbc21d754877bcd75fc8edefa",
-                            "test__output1GenericAffine.mat:md5,95fc005e7f2b4de689f3246b14b652c0"
+                            "test__output0Warp.nii.gz:md5,416be1ff76417ee4cdbfe12f0926854b",
+                            "test__output1GenericAffine.mat:md5,99d55c24b7538e6b751e333511378fcb"
                         ]
                     ]
                 ],
@@ -66,8 +66,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0InverseAffine.mat:md5,aa2254ecad64dcf4e931f3a6f6420039",
-                            "test__output1InverseWarp.nii.gz:md5,6cfc53dc70a840be349f75131c82ec88"
+                            "test__output0InverseAffine.mat:md5,8c1de5c088e140e077398807eed2f579",
+                            "test__output1InverseWarp.nii.gz:md5,f056ff8c7dd2db3175fec74ea2485e7b"
                         ]
                     ]
                 ],
@@ -80,7 +80,7 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2024-09-28T05:35:09.408025755"
+        "timestamp": "2024-09-29T03:12:27.501585411"
     },
     "registration - ants - quick": {
         "content": [
@@ -91,7 +91,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__warped.nii.gz:md5,881bfbc46523ed4805ff199996ee199f"
+                        "test__warped.nii.gz:md5,2e7f87575007e57881864fcb20086cbb"
                     ]
                 ],
                 "1": [
@@ -101,8 +101,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0Warp.nii.gz:md5,544b50db134e847bdd74bdb31a67f257",
-                            "test__output1GenericAffine.mat:md5,fb0d319e41a7dd04cf65c793c3e78859"
+                            "test__output0Warp.nii.gz:md5,e87f55e0a7562292582bb768dbe4feb4",
+                            "test__output1GenericAffine.mat:md5,79ca56993d673c37553139fd0d8a87cc"
                         ]
                     ]
                 ],
@@ -113,8 +113,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0InverseAffine.mat:md5,9d86318de62a00ea8ed59a8e0c5ee43c",
-                            "test__output1InverseWarp.nii.gz:md5,909e5ac3b150a6edac675fadf3b348c0"
+                            "test__output0InverseAffine.mat:md5,0b6d35c62e0374c467808f810091dcac",
+                            "test__output1InverseWarp.nii.gz:md5,3532a01eb3f045e260f88fcec42c6a67"
                         ]
                     ]
                 ],
@@ -127,7 +127,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__warped.nii.gz:md5,881bfbc46523ed4805ff199996ee199f"
+                        "test__warped.nii.gz:md5,2e7f87575007e57881864fcb20086cbb"
                     ]
                 ],
                 "transfo_image": [
@@ -137,8 +137,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0Warp.nii.gz:md5,544b50db134e847bdd74bdb31a67f257",
-                            "test__output1GenericAffine.mat:md5,fb0d319e41a7dd04cf65c793c3e78859"
+                            "test__output0Warp.nii.gz:md5,e87f55e0a7562292582bb768dbe4feb4",
+                            "test__output1GenericAffine.mat:md5,79ca56993d673c37553139fd0d8a87cc"
                         ]
                     ]
                 ],
@@ -149,8 +149,8 @@
                             "single_end": false
                         },
                         [
-                            "test__output0InverseAffine.mat:md5,9d86318de62a00ea8ed59a8e0c5ee43c",
-                            "test__output1InverseWarp.nii.gz:md5,909e5ac3b150a6edac675fadf3b348c0"
+                            "test__output0InverseAffine.mat:md5,0b6d35c62e0374c467808f810091dcac",
+                            "test__output1InverseWarp.nii.gz:md5,3532a01eb3f045e260f88fcec42c6a67"
                         ]
                     ]
                 ],
@@ -163,7 +163,7 @@
             "nf-test": "0.9.0",
             "nextflow": "24.04.4"
         },
-        "timestamp": "2024-09-28T05:37:34.16215616"
+        "timestamp": "2024-09-29T03:13:28.329254222"
     },
     "registration - ants - options": {
         "content": [
@@ -174,7 +174,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__warped.nii.gz:md5,58007213474153da113836b0b98de428"
+                        "test__warped.nii.gz:md5,067539cdd74a83e64ad82a982a75004b"
                     ]
                 ],
                 "1": [
@@ -183,7 +183,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__output1GenericAffine.mat:md5,73802271efb0a0519ca40901a1be480b"
+                        "test__output1GenericAffine.mat:md5,cb993b9c8e42b9bd97c5ebfc66c0b6a8"
                     ]
                 ],
                 "2": [
@@ -192,7 +192,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__output0InverseAffine.mat:md5,eaf72200cee6f4843ff8b802738374b7"
+                        "test__output0InverseAffine.mat:md5,7fdaa1cef0b3b808350aae1c7465897a"
                     ]
                 ],
                 "3": [
@@ -204,7 +204,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__warped.nii.gz:md5,58007213474153da113836b0b98de428"
+                        "test__warped.nii.gz:md5,067539cdd74a83e64ad82a982a75004b"
                     ]
                 ],
                 "transfo_image": [
@@ -213,7 +213,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__output1GenericAffine.mat:md5,73802271efb0a0519ca40901a1be480b"
+                        "test__output1GenericAffine.mat:md5,cb993b9c8e42b9bd97c5ebfc66c0b6a8"
                     ]
                 ],
                 "transfo_trk": [
@@ -222,7 +222,7 @@
                             "id": "test",
                             "single_end": false
                         },
-                        "test__output0InverseAffine.mat:md5,eaf72200cee6f4843ff8b802738374b7"
+                        "test__output0InverseAffine.mat:md5,7fdaa1cef0b3b808350aae1c7465897a"
                     ]
                 ],
                 "versions": [
@@ -231,9 +231,9 @@
             }
         ],
         "meta": {
-            "nf-test": "0.8.4",
-            "nextflow": "23.10.1"
+            "nf-test": "0.9.0",
+            "nextflow": "24.04.4"
         },
-        "timestamp": "2024-05-10T15:22:59.155233"
+        "timestamp": "2024-09-29T03:13:48.116869405"
     }
 }
