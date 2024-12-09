@@ -353,7 +353,7 @@ NEXT_MODULE( ch_nextmodule )
 You now have a working `main.nf` file, but you did not specified any parameters to your pipeline yet. Let's do this using the `nextflow.config` file. First, you will want to define your publish directory options (where your files will be outputted). You can add those lines to the beginning of your `nextflow.config`:
 ```nextflow
 process {
-  publishDir = {"${params.output_dir}/$sid/${task.process.replaceAll(':', '-')}"}
+  publishDir = {"${params.output_dir}/$meta.id/${task.process.replaceAll(':', '-')}"}
 }
 ```
 
