@@ -59,24 +59,18 @@ def convert_subworkflow_to_md(yaml_data):
         name = next(iter(input))
         input_type = input[name]['type'].replace("\n", " ")
         description = input[name]['description'].replace("\n", " ")
-        try:  # If no pattern, then set it to empty string.
-            pattern = input[name]['pattern'].replace("\n", " ")
-        except KeyError:
-            pattern = ""
+        pattern = input[name].get('pattern', "").replace("\n", " ")
         inputs += f"| {name} | {input_type} | {description} | {pattern} |\n"
 
     # Table for params.
-    try:
-        params = "|  | Type | Description | Default |\n"
-        params += "|-------|------|-------------|---------|\n"
-        for param in yaml_data['parameters']:
-            name = next(iter(param))
-            param_type = param[name]['type'].replace("\n", " ")
-            description = param[name]['description'].replace("\n", " ")
-            default = param[name]['default']
-            params += f"| {name} | {param_type} | {description} | {default} |\n"
-    except KeyError:
-        params = ""
+    params = "|  | Type | Description | Default |\n"
+    params += "|-------|------|-------------|---------|\n"
+    for param in yaml_data['parameters']:
+        name = next(iter(param))
+        param_type = param[name]['type'].replace("\n", " ")
+        description = param[name]['description'].replace("\n", " ")
+        default = param[name].get('default')
+        params += f"| {name} | {param_type} | {description} | {default} |\n"
 
     # Table for outputs.
     outputs = "|  | Type | Description | Pattern |\n"
@@ -85,10 +79,7 @@ def convert_subworkflow_to_md(yaml_data):
         name = next(iter(output))
         output_type = output[name]['type'].replace("\n", " ")
         description = output[name]['description'].replace("\n", " ")
-        try:  # If no pattern, then set it to empty string.
-            pattern = output[name]['pattern'].replace("\n", " ")
-        except KeyError:
-            pattern = ""
+        pattern = output[name].get('pattern', "").replace("\n", " ")
         outputs += f"| {name} | {output_type} | {description} | {pattern} |\n"
 
     # Markdown file needs a frontmatter for astro to read properly.
