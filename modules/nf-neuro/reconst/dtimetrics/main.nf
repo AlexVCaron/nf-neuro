@@ -50,7 +50,7 @@ process RECONST_DTIMETRICS {
     def max_dti_shell_value = task.ext.max_dti_shell_value ?: 1500
     def b0_thr_extract_b0 = task.ext.b0_thr_extract_b0 ?: 10
     def b0_threshold = task.ext.b0_thr_extract_b0 ? "--b0_threshold $task.ext.b0_thr_extract_b0" : ""
-    def dti_shells = task.ext.dti_shells ?: "\$(cut -d ' ' --output-delimiter=\$'\\n' -f 1- $bval | awk -F' ' '{v=int(\$1)}{if(v<=$max_dti_shell_value|| v<=$b0_thr_extract_b0)print v}' | uniq)"
+    def dti_shells = task.ext.dti_shells ?: "\$(cut -d ' ' --output-delimiter=\$'\\n' -f 1- $bval | awk -F' ' '{v=int(\$1)}{if(v<=$max_dti_shell_value|| v<=$b0_thr_extract_b0)print v}' | sort | uniq)"
 
     if ( b0mask ) args += " --mask $b0mask"
     if ( task.ext.ad ) args += " --ad ${prefix}__ad.nii.gz"
