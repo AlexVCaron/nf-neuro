@@ -36,6 +36,5 @@
             }
         }
     },
-    "required": ["channels", "dependencies"],
-    "not": { "required": ["name"] }
+    "required": ["channels", "dependencies"]
 }
