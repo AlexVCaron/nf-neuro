@@ -3,51 +3,51 @@
 name: image_applymask
 description: Apply a binary mask to a 3D or 4D image.
 keywords:
-- Image
-- Mask
-- BET
+  - Image
+  - Mask
+  - BET
 tools:
-- MRtrix3:
-    description: Toolbox for image processing, analysis and visualisation of dMRI.
-    homepage: https://mrtrix.readthedocs.io/en/latest/
+  - MRtrix3:
+      description: Toolbox for image processing, analysis and visualisation of dMRI.
+      homepage: https://mrtrix.readthedocs.io/en/latest/
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1', single_end:false ]`
 
-  - image:
-      type: file
-      description: 3D or 4D image to apply the mask to.
-      pattern: '*.nii.gz'
+    - image:
+        type: file
+        description: 3D or 4D image to apply the mask to.
+        pattern: "*.nii.gz"
 
-  - mask:
-      type: file
-      description: Binary mask to apply to the image.
-      pattern: '*.nii.gz'
+    - mask:
+        type: file
+        description: Binary mask to apply to the image.
+        pattern: "*.nii.gz"
 
 output:
-- image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Masked 3D or 4D image.
-      pattern: '*.nii.gz'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+  - image:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+      - "*masked.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*.nii.gz"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@gagnonanthony'
+  - "@gagnonanthony"
 maintainers:
-- '@gagnonanthony'
+  - "@gagnonanthony"

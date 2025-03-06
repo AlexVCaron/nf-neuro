@@ -3,51 +3,51 @@
 name: denoising_nlmeans
 description: denoise a dataset with the Non Local Means algorithm
 keywords:
-- nifti
-- denoising
-- nlmeans
-- scilpy
+  - nifti
+  - denoising
+  - nlmeans
+  - scilpy
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - image:
-      type: file
-      description: Nifti image file to denoise
-      pattern: '*.{nii,nii.gz}'
+    - image:
+        type: file
+        description: Nifti image file to denoise
+        pattern: "*.{nii,nii.gz}"
 
-  - mask:
-      type: file
-      description: Nifti image file used to mask the input image
-      pattern: '*.{nii,nii.gz}'
+    - mask:
+        type: file
+        description: Nifti image file used to mask the input image
+        pattern: "*.{nii,nii.gz}"
 
 output:
-- image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - image:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_denoised.nii.gz':
-      type: file
-      description: Denoised Nifti image file
-      pattern: '*_denoised.{nii,nii.gz}'
+      - "*_denoised.nii.gz":
+          type: file
+          description: Denoised Nifti image file
+          pattern: "*_denoised.{nii,nii.gz}"
 
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 
 authors:
-- '@scilus'
+  - "@scilus"

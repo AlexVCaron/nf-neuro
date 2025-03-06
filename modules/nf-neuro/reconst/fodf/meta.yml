@@ -14,246 +14,252 @@ description: Perform FODF reconstruction and compute FODF metrics from a dwi vol
   FODF, along with volume fraction (vf) maps. In every case, chosen FODF metrics are
   outputed.
 keywords:
-- FODF
-- Local Model
-- Reconst
+  - FODF
+  - Local Model
+  - Reconst
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - dwi:
-      type: file
-      description: Nifti DWI volume to reconstruct FODF from.
-      pattern: '*.{nii,nii.gz}'
+    - dwi:
+        type: file
+        description: Nifti DWI volume to reconstruct FODF from.
+        pattern: "*.{nii,nii.gz}"
 
-  - bval:
-      type: file
-      description: B-values in FSL format.
-      pattern: '*.bval'
+    - bval:
+        type: file
+        description: B-values in FSL format.
+        pattern: "*.bval"
 
-  - bvec:
-      type: file
-      description: B-vectors in FSL format.
-      pattern: '*.bvec'
+    - bvec:
+        type: file
+        description: B-vectors in FSL format.
+        pattern: "*.bvec"
 
-  - mask:
-      type: file
-      description: B0 mask.
-      pattern: '*.{nii,nii.gz}'
+    - mask:
+        type: file
+        description: B0 mask.
+        pattern: "*.{nii,nii.gz}"
 
-  - fa:
-      type: file
-      description: FA map.
-      pattern: '*.{nii,nii.gz}'
+    - fa:
+        type: file
+        description: FA map.
+        pattern: "*.{nii,nii.gz}"
 
-  - md:
-      type: file
-      description: MD map.
-      pattern: '*.{nii,nii.gz}'
+    - md:
+        type: file
+        description: MD map.
+        pattern: "*.{nii,nii.gz}"
 
-  - wm_frf:
-      type: file
-      description: Fiber Response Function (FRF) for the white matter (WM). In the
-        case of single-shell method, this should be the only input FRF. In the case
-        of multi-shell method, gm_frf and csf_frf are also mandatory.
-      pattern: '*.txt'
+    - wm_frf:
+        type: file
+        description: Fiber Response Function (FRF) for the white matter (WM). In the
+          case of single-shell method, this should be the only input FRF. In the case
+          of multi-shell method, gm_frf and csf_frf are also mandatory.
+        pattern: "*.txt"
 
-  - gm_frf:
-      type: file
-      description: Fiber Response Function (FRF) for the grey matter (GM). Only use
-        with multi-shell method, along with wm_frf and csf_frf.
-      pattern: '*.txt'
+    - gm_frf:
+        type: file
+        description: Fiber Response Function (FRF) for the grey matter (GM). Only use
+          with multi-shell method, along with wm_frf and csf_frf.
+        pattern: "*.txt"
 
-  - csf_frf:
-      type: file
-      description: Fiber Response Function (FRF) for the CSF. Only use with multi-shell
-        method, along with wm_frf and gm_frf.
-      pattern: '*.txt'
+    - csf_frf:
+        type: file
+        description: Fiber Response Function (FRF) for the CSF. Only use with multi-shell
+          method, along with wm_frf and gm_frf.
+        pattern: "*.txt"
 
 output:
-- fodf:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*fodf.nii.gz':
-      type: file
-      description: FODF map.
-      pattern: '*fodf.nii.gz'
-
-- wm_fodf:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*wm_fodf.nii.gz':
-      type: file
-      description: WM FODF map.
-      pattern: '*wm_fodf.nii.gz'
-
-- gm_fodf:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*gm_fodf.nii.gz':
-      type: file
-      description: GM FODF map.
-      pattern: '*gm_fodf.nii.gz'
-
-- csf_fodf:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*csf_fodf.nii.gz':
-      type: file
-      description: CSF FODF map.
-      pattern: '*csf_fodf.nii.gz'
-
-- vf:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*vf.nii.gz':
-      type: file
-      description: Volume fraction map.
-      pattern: '*vf.nii.gz'
-
-- vf_rgb:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*vf_rgb.nii.gz':
-      type: file
-      description: Volume fraction map in rgb.
-      pattern: '*vf_rgb.nii.gz'
-
-- peaks:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*peaks.nii.gz':
-      type: file
-      description: Peaks file.
-      pattern: '*peaks.nii.gz'
-
-- peak_values:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*peak_values.nii.gz':
-      type: file
-      description: Peak values file.
-      pattern: '*peak_values.nii.gz'
-
-- peak_indices:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*peak_indices.nii.gz':
-      type: file
-      description: Peak indices file.
-      pattern: '*peak_indices.nii.gz'
-
-- afd_max:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*afd_max.nii.gz':
-      type: file
-      description: Maximum Apparent Fiber Density (AFDmax) map.
-      pattern: '*afd_max.nii.gz'
-
-- afd_total:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*afd_total.nii.gz':
-      type: file
-      description: Total Apparent Fiber Density (AFDtotal) map.
-      pattern: '*afd_total.nii.gz'
-
-- afd_sum:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*afd_sum.nii.gz':
-      type: file
-      description: Sum of all Apparent Fiber Density (Afdsum) map.
-      pattern: '*afd_sum.nii.gz'
-
-- nufo:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*nufo.nii.gz':
-      type: file
-      description: Number of Fiber Orientation (NuFO) map.
-      pattern: '*nufo.nii.gz'
-
-- vent_mask:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*ventricles_mask.nii.gz':
-      type: file
-      description: Ventricule mask estimated from an MD and FA threshold.
-      pattern: '*ventricles_mask.nii.gz'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+  - fodf:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__fodf.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*fodf.nii.gz"
+  - wm_fodf:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__wm_fodf.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*wm_fodf.nii.gz"
+  - gm_fodf:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__gm_fodf.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*gm_fodf.nii.gz"
+  - csf_fodf:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__csf_fodf.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*csf_fodf.nii.gz"
+  - vf:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__vf.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*vf.nii.gz"
+  - vf_rgb:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__vf_rgb.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*vf_rgb.nii.gz"
+  - peaks:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__peaks.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*peaks.nii.gz"
+  - peak_values:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__peak_values.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*peak_values.nii.gz"
+      - ues:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*peak_values.nii.gz"
+  - peak_indices:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__peak_indices.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*peak_indices.nii.gz"
+  - afd_max:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__afd_max.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*afd_max.nii.gz"
+  - afd_total:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__afd_total.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*afd_total.nii.gz"
+  - afd_sum:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__afd_sum.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*afd_sum.nii.gz"
+  - nufo:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__nufo.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*nufo.nii.gz"
+  - vent_mask:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__ventricles_mask.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*ventricles_mask.nii.gz"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@gagnonanthony'
-- '@karanphil'
+  - "@gagnonanthony"
+  - "@karanphil"

@@ -8,90 +8,90 @@ description: Perform SCILPY scil_bundle_label_map.py. Compute the label image (N
   of its nearest centroid point. The number of labels will be the same as the centroid's
   number of points.
 keywords:
-- bundle
-- distance
-- label
-- centroid
+  - bundle
+  - distance
+  - label
+  - centroid
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - bundles:
-      type: file
-      description: List of trk files of the bundles
-      pattern: '*.{trk}'
+    - bundles:
+        type: file
+        description: List of trk files of the bundles
+        pattern: "*.{trk}"
 
-  - centroids:
-      type: file
-      description: List of trk files of the centroids
-      pattern: '*.{trk}'
+    - centroids:
+        type: file
+        description: List of trk files of the centroids
+        pattern: "*.{trk}"
 
 output:
-- labels:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - labels:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_labels.nii.gz':
-      type: file
-      description: Labels map, each pixel intensity corresponds to the label of the
-        nearest centroid.
-      pattern: '*_labels.nii.gz'
+      - "*_labels.nii.gz":
+          type: file
+          description: Labels map, each pixel intensity corresponds to the label of the
+            nearest centroid.
+          pattern: "*_labels.nii.gz"
 
-- distances:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - distances:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_distances.nii.gz':
-      type: file
-      description: Distance map. The pixel intensity corresponds to the distance to
-        the nearest centroid.
-      pattern: '*_distances.nii.gz'
+      - "*_distances.nii.gz":
+          type: file
+          description: Distance map. The pixel intensity corresponds to the distance to
+            the nearest centroid.
+          pattern: "*_distances.nii.gz"
 
-- labels_trk:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - labels_trk:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_labels.trk':
-      type: file
-      description: Colored by labels bundle file. The streamline color corresponds
-        to the label of the nearest centroid.
-      pattern: '*_labels.trk'
+      - "*_labels.trk":
+          type: file
+          description: Colored by labels bundle file. The streamline color corresponds
+            to the label of the nearest centroid.
+          pattern: "*_labels.trk"
 
-- distances_trk:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - distances_trk:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_distances.trk':
-      type: file
-      description: Colored by distance bundle file. The streamline color corresponds
-        to the distance to the nearest centroid.
-      pattern: '*_distances.trk'
+      - "*_distances.trk":
+          type: file
+          description: Colored by distance bundle file. The streamline color corresponds
+            to the distance to the nearest centroid.
+          pattern: "*_distances.trk"
 
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 
 authors:
-- '@gagnonanthony'
+  - "@gagnonanthony"

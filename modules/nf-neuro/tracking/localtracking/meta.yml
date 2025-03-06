@@ -3,117 +3,115 @@
 name: tracking_localtracking
 description: process local tracking
 keywords:
-- Tractography
-- Local tracking
-- Diffusion MRI
+  - Tractography
+  - Local tracking
+  - Diffusion MRI
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - wm:
-      type: file
-      description: Nifti image white matter mask.
-      pattern: '*.{nii,nii.gz}'
+    - wm:
+        type: file
+        description: Nifti image white matter mask.
+        pattern: "*.{nii,nii.gz}"
 
-  - fodf:
-      type: file
-      description: Nifti image of spherical harmonic file (fodf)
-      pattern: '*.{nii,nii.gz}'
+    - fodf:
+        type: file
+        description: Nifti image of spherical harmonic file (fodf)
+        pattern: "*.{nii,nii.gz}"
 
-  - fa:
-      type: file
-      description: NIfti image binary mask for fa mask
-      pattern: '*.{nii,nii.gz}'
+    - fa:
+        type: file
+        description: NIfti image binary mask for fa mask
+        pattern: "*.{nii,nii.gz}"
 
 output:
-- trk:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.tck':
-      type: file
-      description: Tractogram output file.
-      pattern: '*.{trk,tck}'
-
-- config:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.json':
-      type: file
-      description: Json file containing tracking parameters.
-      pattern: '*.{json}'
-
-- seedmask:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Nifti seeding mask for tracking.
-      pattern: '*.{nii,nii.gz}'
-
-- trackmask:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Nifti tracking mask
-      pattern: '*.{nii,nii.gz}'
-
-- mqc:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*local_tracking_mqc.png':
-      type: file
-      description: PNG file containing quality control image for tracking. Made for
-        use in MultiQC report.
-      pattern: '*local_tracking_mqc.png'
-
-- global_mqc:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*local_tracking_stats.json':
-      type: file
-      description: JSON file containing basic measurements of whole tractogram. Made
-        for use in MultiQC report.
-      pattern: '*local_tracking_stats.json'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+  - trk:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__local_tracking.trk":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.{trk,tck}"
+  - config:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__local_tracking_config.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.{json}"
+  - seedmask:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__local_seeding_mask.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.{nii,nii.gz}"
+  - trackmask:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__local_tracking_mask.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.{nii,nii.gz}"
+  - mqc:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__local_tracking_mqc.png":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*local_tracking_mqc.png"
+  - global_mqc:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__local_tracking_stats.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*local_tracking_stats.json"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@scilus'
+  - "@scilus"

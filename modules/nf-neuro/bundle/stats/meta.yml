@@ -36,249 +36,257 @@ description: |
 
   **To create label_map and distance_map, see scil_bundle_label_map.py
 keywords:
-- Bundle
-- Labels
-- Statistic
-- Volume
-- Length
-- Endpoint
-- Mean std
-- Streamlines count
-- json
+  - Bundle
+  - Labels
+  - Statistic
+  - Volume
+  - Length
+  - Endpoint
+  - Mean std
+  - Streamlines count
+  - json
 
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'sample1', single_end:false ]`
 
-  - bundles:
-      type: file
-      description: Fiber bundle file to compute statistics on.
-      pattern: '*.trk'
+    - bundles:
+        type: file
+        description: Fiber bundle file to compute statistics on.
+        pattern: "*.trk"
 
-  - labels_map:
-      type: file
-      description: label map of the corresponding fiber bundle. this file must have
-        the same dimension than bundle file and have datatype in int. If you have
-        multiple bundes, it must have the same numbers of sections.
-      pattern: '*.nii.gz'
+    - labels_map:
+        type: file
+        description: label map of the corresponding fiber bundle. this file must have
+          the same dimension than bundle file and have datatype in int. If you have
+          multiple bundes, it must have the same numbers of sections.
+        pattern: "*.nii.gz"
 
-  - metrics:
-      type: file
-      description: Nifti file to compute statistics on. Probably some tractometry
-        measure(s) such as FA, MD, RD, ... The metrics has to follow a specific naming
-        convention.
-      pattern: '*_{bundle_name}_{metric_name}.nii.gz'
+    - metrics:
+        type: file
+        description: Nifti file to compute statistics on. Probably some tractometry
+          measure(s) such as FA, MD, RD, ... The metrics has to follow a specific naming
+          convention.
+        pattern: "*_{bundle_name}_{metric_name}.nii.gz"
 
-  - lesions:
-      type: file
-      description: Nifti lesion volume to compute statistics on. The lesion mask must
-        be a binary mask.
-      pattern: '*.nii.gz'
+    - lesions:
+        type: file
+        description: Nifti lesion volume to compute statistics on. The lesion mask must
+          be a binary mask.
+        pattern: "*.nii.gz"
 
 output:
-- length:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+  - length:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__length_stats.json':
-      type: file
-      description: Information on a tractogram, number of streamlines, mean / min
-        / max / std of length in number of points, length in mm and step size.
-      pattern: '*__length_stats.json'
+      - "*_length_stats.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__length_stats.json"
+  - endpoints_raw:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- endpoints_raw:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*_endpoints_map_raw.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__endpoints_map_raw.json"
+  - endpoints_metric_stats:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__endpoints_map_raw.json':
-      type: file
-      description: Estimation of the cortical area affected by the bundle (assuming
-        streamlines start/end in the cortex).
-      pattern: '*__endpoints_map_raw.json'
+      - "*_endpoints_metric_stats.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__endpoints_metric_stats.json"
+  - mean_std:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- endpoints_metric_stats:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*_mean_std.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__mean_std.json"
+  - volume:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__endpoints_metric_stats.json':
-      type: file
-      description: Compute the statistics of metrics at the bundle endpoint map.
-      pattern: '*__endpoints_metric_stats.json'
+      - "*_volume.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__volume.json"
+  - volume_lesions:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- mean_std:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*_volume_lesions.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__volume_lesion.json"
+  - streamline_count:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__mean_std.json':
-      type: file
-      description: Average the metric values of all voxels occupied by the bundle.
-      pattern: '*__mean_std.json'
+      - "*_streamline_count.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__streamline_count.json"
+  - streamline_count_lesions:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- volume:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*_streamline_count_lesions.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__streamline_count_lesions.json"
+  - volume_per_labels:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__volume.json':
-      type: file
-      description: Evaluate basic measurements of bundle(s).
-      pattern: '*__volume.json'
+      - "*_volume_per_label.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__volume_per_label.json"
+  - volume_per_labels_lesions:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- volume_lesions:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*_volume_per_label_lesions.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__volume_per_label_lesions.json"
+  - mean_std_per_point:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__volume_lesion.json':
-      type: file
-      description: Compute bundle volume in each lesions in mm3.
-      pattern: '*__volume_lesion.json'
+      - "*_mean_std_per_point.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*__mean_std_per_point.json"
+  - lesion_stats:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- streamline_count:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*__lesion_stats.json":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*_lesion_stats.json"
+  - endpoints_head:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__streamline_count.json':
-      type: file
-      description: Return the number of streamlines in a tractogram.
-      pattern: '*__streamline_count.json'
+      - "*_endpoints_map_head.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*.nii.gz"
+  - endpoints_tail:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-- streamline_count_lesions:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
+      - "*_endpoints_map_tail.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*.nii.gz"
+  - lesion_map:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
 
-  - '*__streamline_count_lesions.json':
-      type: file
-      description: Return the number of streamlines in each lesions.
-      pattern: '*__streamline_count_lesions.json'
-
-- volume_per_labels:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*__volume_per_label.json':
-      type: file
-      description: Compute bundle volume per label in mm3. This script supports anisotropic
-        voxels resolution. Volume is estimated by counting the number of voxel occupied
-        by each label and multiplying it by the volume of a single voxel.
-      pattern: '*__volume_per_label.json'
-
-- volume_per_labels_lesions:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*__volume_per_label_lesions.json':
-      type: file
-      description: Compute bundle volume per label in each lesions in mm3.
-      pattern: '*__volume_per_label_lesions.json'
-
-- mean_std_per_point:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*__mean_std_per_point.json':
-      type: file
-      description: Average the metric values of all voxels occupied by the bundle
-        per label.
-      pattern: '*__mean_std_per_point.json'
-
-- lesion_stats:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*_lesion_stats.json':
-      type: file
-      description: File of the lesion-wise volume measure.
-      pattern: '*_lesion_stats.json'
-
-- endpoints_head:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Endpoint head map of bundle. The endpoint head map is simply a
-        count of the number of streamlines that start in each voxel.
-      pattern: '*.nii.gz'
-
-- endpoints_tail:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Endpoint tail map of bundle. The endpoint tail map is simply a
-        count of the number of streamlines that end in each voxel.
-      pattern: '*.nii.gz'
-
-- lesion_map:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'sample1', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Nifti files of labelized lesion(s) map for each bundles.
-      pattern: '*.nii.gz'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+      - "*_lesion_map.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'sample1', single_end:false ]`
+          pattern: "*.nii.gz"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@ThoumyreStanislas'
+  - "@ThoumyreStanislas"
 maintainers:
-- '@ThoumyreStanislas'
+  - "@ThoumyreStanislas"

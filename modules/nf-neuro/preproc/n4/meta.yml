@@ -3,55 +3,55 @@
 name: preproc_n4
 description: Bias field correction using N4
 keywords:
-- correction
-- N4
-- bias field
+  - correction
+  - N4
+  - bias field
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - image:
-      type: file
-      description: Nifti image file to correct
-      pattern: '*.{nii,nii.gz}'
+    - image:
+        type: file
+        description: Nifti image file to correct
+        pattern: "*.{nii,nii.gz}"
 
-  - ref:
-      type: file
-      description: Nifti image file for the reference
-      pattern: '*.{nii,nii.gz}'
+    - ref:
+        type: file
+        description: Nifti image file for the reference
+        pattern: "*.{nii,nii.gz}"
 
-  - ref_mask:
-      type: file
-      description: Nifti image file mask for the reference
-      pattern: '*.{nii,nii.gz}'
+    - ref_mask:
+        type: file
+        description: Nifti image file mask for the reference
+        pattern: "*.{nii,nii.gz}"
 
 output:
-- image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: N4 corrected image
-      pattern: '*.{nii,nii.gz}'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+  - image:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__image_n4.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.{nii,nii.gz}"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@arnaudbore'
+  - "@arnaudbore"

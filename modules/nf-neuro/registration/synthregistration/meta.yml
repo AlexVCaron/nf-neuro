@@ -9,64 +9,58 @@ description: Perform registration using SynthMorph from Freesurfer. Outputs tran
   the registration/convert module successively to it. Note that tests using synthmorph
   are non-reproductible.
 keywords:
-- Registration
-- Brain imaging
-- MRI
-- Synthetic
-- AI
-- CNN
+  - Registration
+  - Brain imaging
+  - MRI
+  - Synthetic
+  - AI
+  - CNN
 tools:
-- Freesurfer:
-    description: Freesurfer Synthmorph
-    homepage: https://martinos.org/malte/synthmorph/
+  - Freesurfer:
+      description: Freesurfer Synthmorph
+      homepage: https://martinos.org/malte/synthmorph/
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - moving:
-      type: file
-      description: Nifti volume moving for registration
-      pattern: '*.{nii,nii.gz}'
+    - moving:
+        type: file
+        description: Nifti volume moving for registration
+        pattern: "*.{nii,nii.gz}"
 
-  - fixed:
-      type: file
-      description: Nifti volume fixed for registration
-      pattern: '*.{nii,nii.gz}'
+    - fixed:
+        type: file
+        description: Nifti volume fixed for registration
+        pattern: "*.{nii,nii.gz}"
 
 output:
-- warped_image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*..nii.gz':
-      type: file
-      description: Warped image
-      pattern: '*.{nii,.nii.gz}'
-
-- transfo_image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.nii.gz':
-      type: list
-      description: Tuple, Transformation files to warp images (nii.gz warp, lta file)
-      pattern: '*.{nii,nii.gz,lta}'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+  - warped_image:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__output_warped.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.{nii,.nii.gz}"
+  - warp:
+      - meta: {}
+      - "*__deform_warp.nii.gz": {}
+  - affine:
+      - meta: {}
+      - "*__affine_warp.lta": {}
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@anroy1'
+  - "@anroy1"

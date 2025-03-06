@@ -3,51 +3,51 @@
 name: denoising_mppca
 description: denoise a dataset with the Marchenko-Pastur principal component analysis
 keywords:
-- nifti
-- denoising
-- mppca
-- mrtrix
-- fsl
+  - nifti
+  - denoising
+  - mppca
+  - mrtrix
+  - fsl
 tools:
-- MRtrix3:
-    description: Toolbox for image processing, analysis and visualisation of dMRI.
-    homepage: https://mrtrix.readthedocs.io/en/latest/
+  - MRtrix3:
+      description: Toolbox for image processing, analysis and visualisation of dMRI.
+      homepage: https://mrtrix.readthedocs.io/en/latest/
 
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - dwi:
-      type: file
-      description: Nifti dwi file to denoise
-      pattern: '*.{nii,nii.gz}'
+    - dwi:
+        type: file
+        description: Nifti dwi file to denoise
+        pattern: "*.{nii,nii.gz}"
 
-  - mask:
-      type: file
-      description: Nifti mask file for the dwi, optional
-      pattern: '*.{nii,nii.gz}'
+    - mask:
+        type: file
+        description: Nifti mask file for the dwi, optional
+        pattern: "*.{nii,nii.gz}"
 
 output:
-- image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - image:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_dwi_denoised.nii.gz':
-      type: file
-      description: Denoised Nifti image file
-      pattern: '*_dwi_denoised.{nii,nii.gz}'
+      - "*_dwi_denoised.nii.gz":
+          type: file
+          description: Denoised Nifti image file
+          pattern: "*_dwi_denoised.{nii,nii.gz}"
 
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 
 authors:
-- '@scilus'
+  - "@scilus"

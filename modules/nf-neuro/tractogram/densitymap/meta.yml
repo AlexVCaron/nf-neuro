@@ -3,47 +3,47 @@
 name: tractogram_densitymap
 description: Compute density maps from tractograms
 keywords:
-- Diffusion MRI
-- Tractogram
-- Density Map
+  - Diffusion MRI
+  - Tractogram
+  - Density Map
 tools:
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
 
+      identifier: ""
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - tractogram:
-      type: file
-      description: Tractogram file for density map computation
-      pattern: '*.trk'
+    - tractogram:
+        type: file
+        description: Tractogram file for density map computation
+        pattern: "*.trk"
 
 output:
-- density_map:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
-
-  - '*.nii.gz':
-      type: file
-      description: Computed density map
-      pattern: '*.nii.gz'
-
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
-
+  - density_map:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+      - "*__*.nii.gz":
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
+          pattern: "*.nii.gz"
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 authors:
-- '@GuillaumeTh'
+  - "@GuillaumeTh"
 maintainers:
-- '@GuillaumeTh'
+  - "@GuillaumeTh"

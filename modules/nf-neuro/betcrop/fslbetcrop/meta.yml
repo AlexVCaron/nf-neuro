@@ -4,87 +4,87 @@ name: betcrop_fslbetcrop
 description: Perform Brain extraction using FSL BET followed by cropping empty planes
   around the data.
 keywords:
-- DWI
-- T1
-- BET
-- Crop
-- scilpy
+  - DWI
+  - T1
+  - BET
+  - Crop
+  - scilpy
 tools:
-- FSL:
-    description: FSL Toolbox
-    homepage: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki
-- scilpy:
-    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
-      toolbox.
-    homepage: https://github.com/scilus/scilpy.git
-- MRtrix3:
-    description: Toolbox for image processing, analysis and visualisation of dMRI.
-    homepage: https://mrtrix.readthedocs.io/en/latest/
+  - FSL:
+      description: FSL Toolbox
+      homepage: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki
+  - scilpy:
+      description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+        toolbox.
+      homepage: https://github.com/scilus/scilpy.git
+  - MRtrix3:
+      description: Toolbox for image processing, analysis and visualisation of dMRI.
+      homepage: https://mrtrix.readthedocs.io/en/latest/
 
 input:
-- - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing sample information
+          e.g. `[ id:'test', single_end:false ]`
 
-  - image:
-      type: file
-      description: Nifti image volume to perform BET + crop.
-      pattern: '*.{nii,nii.gz}'
+    - image:
+        type: file
+        description: Nifti image volume to perform BET + crop.
+        pattern: "*.{nii,nii.gz}"
 
-  - bval:
-      type: file
-      description: B-values in FSL format.
-      pattern: '*.bval'
+    - bval:
+        type: file
+        description: B-values in FSL format.
+        pattern: "*.bval"
 
-  - bvec:
-      type: file
-      description: B-vectors in FSL format.
-      pattern: '*.bvec'
+    - bvec:
+        type: file
+        description: B-vectors in FSL format.
+        pattern: "*.bvec"
 
 output:
-- image:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - image:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_bet.nii.gz':
-      type: file
-      description: Nifti volume brain-extracted and cropped.
-      pattern: '*_bet.{nii,nii.gz}'
+      - "*_bet.nii.gz":
+          type: file
+          description: Nifti volume brain-extracted and cropped.
+          pattern: "*_bet.{nii,nii.gz}"
 
-- mask:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - mask:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_bet_mask.nii.gz':
-      type: file
-      description: mask brain-extracted and cropped.
-      pattern: '*_bet_mask.{nii,nii.gz}'
+      - "*_bet_mask.nii.gz":
+          type: file
+          description: mask brain-extracted and cropped.
+          pattern: "*_bet_mask.{nii,nii.gz}"
 
-- bbox:
-  - meta:
-      type: map
-      description: |
-        Groovy Map containing sample information
-        e.g. `[ id:'test', single_end:false ]`
+  - bbox:
+      - meta:
+          type: map
+          description: |
+            Groovy Map containing sample information
+            e.g. `[ id:'test', single_end:false ]`
 
-  - '*_boundingBox.pkl':
-      type: file
-      description: BoundingBox used for cropping.
-      pattern: '*_boundingBox.pkl'
+      - "*_boundingBox.pkl":
+          type: file
+          description: BoundingBox used for cropping.
+          pattern: "*_boundingBox.pkl"
 
-- versions:
-  - versions.yml:
-      type: file
-      description: File containing software versions
-      pattern: versions.yml
+  - versions:
+      - versions.yml:
+          type: file
+          description: File containing software versions
+          pattern: versions.yml
 
 authors:
-- '@gagnonanthony'
+  - "@gagnonanthony"
