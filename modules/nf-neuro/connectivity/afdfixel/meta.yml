@@ -1,19 +1,21 @@
 ---
-name: "connectivity_afdfixel"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: connectivity_afdfixel
 description: |
   Compute the mean Apparent Fiber Density (AFD) and mean Radial fODF (radfODF)
   maps for every connections within a hdf5 (.h5) file.
 keywords:
-  - connectivity
-  - AFD_Fixel
-  - Metrics
+- connectivity
+- AFD_Fixel
+- Metrics
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -22,32 +24,34 @@ input:
   - hdf5:
       type: file
       description: HDF5 file containing decomposed connections.
-      pattern: "*.h5"
+      pattern: '*.h5'
 
   - fodf:
       type: file
       description: FODF file.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
 output:
+- hdf5:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'sample1', single_end:false ]`
 
-  - hdf5:
+  - '*.h5':
       type: file
       description: |
         HDF5 file containing the computed AFD fixel and radial fODF metrics.
-      pattern: "*.h5"
+      pattern: '*.h5'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@gagnonanthony"
+- '@gagnonanthony'
 maintainers:
-  - "@gagnonanthony"
+- '@gagnonanthony'

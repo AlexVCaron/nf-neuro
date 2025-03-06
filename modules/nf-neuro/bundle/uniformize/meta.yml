@@ -1,18 +1,21 @@
 ---
-name: "bundle_uniformize"
-description: Uniformize streamlines' endpoints according to a defined axis. Useful for tractometry or models creation.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: bundle_uniformize
+description: Uniformize streamlines' endpoints according to a defined axis. Useful
+  for tractometry or models creation.
 keywords:
-  - uniformize
-  - Bundles
-  - endpoints
-  - tractometry
+- uniformize
+- Bundles
+- endpoints
+- tractometry
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -21,31 +24,34 @@ input:
   - bundles:
       type: file
       description: Bundle or list of bundles to uniformize.
-      pattern: "*.trk"
+      pattern: '*.trk'
 
   - centroids:
       type: file
-      description: Match endpoints of the streamlines to align it to a reference unique streamline (centroid). (optional)
-      pattern: "*.trk"
+      description: Match endpoints of the streamlines to align it to a reference unique
+        streamline (centroid). (optional)
+      pattern: '*.trk'
 
 output:
+- bundles:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'sample1', single_end:false ]`
 
-  - versions:
-      type: file
-      description: File containing software versions
-      pattern: "versions.yml"
-
-  - bundles:
+  - '*.trk':
       type: file
       description: Bundle or list of bundles uniformized.
-      pattern: "*.trk"
+      pattern: '*.trk'
+
+- versions:
+  - versions.yml:
+      type: file
+      description: File containing software versions
+      pattern: versions.yml
 
 authors:
-  - "@ThoumyreStanislas"
+- '@ThoumyreStanislas'
 maintainers:
-  - "@ThoumyreStanislas"
+- '@ThoumyreStanislas'

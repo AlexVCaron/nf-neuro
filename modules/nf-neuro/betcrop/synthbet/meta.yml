@@ -1,17 +1,19 @@
 ---
-name: "betcrop_synthbet"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: betcrop_synthbet
 description: Perform brain extraction using synthstrip on image
 keywords:
-  - anatomical image
-  - BET
-  - freesurfer
+- anatomical image
+- BET
+- freesurfer
 tools:
-  - "Freesurfer":
-      description: "Software package for the analysis and visualization of structural and functional neuroimaging data."
-      homepage: "https://surfer.nmr.mgh.harvard.edu/fswiki"
+- Freesurfer:
+    description: Software package for the analysis and visualization of structural
+      and functional neuroimaging data.
+    homepage: https://surfer.nmr.mgh.harvard.edu/fswiki
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -20,34 +22,43 @@ input:
   - image:
       type: file
       description: Nifti image volume to perform BET.
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - weights:
       type: file
       description: Alternative model weights
-      pattern: "*.pt"
+      pattern: '*.pt'
 
 output:
+- bet_image:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - bet_image:
+  - '*__bet_image.nii.gz':
       type: file
       description: Nifti brain-extracted volume.
-      pattern: "*__bet_image.{nii,nii.gz}"
+      pattern: '*__bet_image.{nii,nii.gz}'
 
-  - brain_mask:
+- brain_mask:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__brain_mask.nii.gz':
       type: file
       description: Brain-extracted image mask .
-      pattern: "*__brain_mask.{nii,nii.gz}"
+      pattern: '*__brain_mask.{nii,nii.gz}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@anroy1"
+- '@anroy1'

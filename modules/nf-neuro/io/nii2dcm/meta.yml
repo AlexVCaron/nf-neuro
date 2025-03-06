@@ -1,20 +1,22 @@
-name: "io_nii2dcm"
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: io_nii2dcm
 description: Convert NIfTI files to DICOM format.
 keywords:
-  - NIfTI
-  - DICOM
-  - Conversion
+- NIfTI
+- DICOM
+- Conversion
 
 tools:
-  - "MRtrix3":
-      description: "Toolbox for image processing, analysis and visualisation of dMRI."
-      homepage: "https://www.mrtrix.org/"
-  - "nii2dcm":
-      description: "A tool to convert NIfTI files to DICOM format."
-      homepage: "https://github.com/Onset-lab/nii2dcm"
+- MRtrix3:
+    description: Toolbox for image processing, analysis and visualisation of dMRI.
+    homepage: https://www.mrtrix.org/
+- nii2dcm:
+    description: A tool to convert NIfTI files to DICOM format.
+    homepage: https://github.com/Onset-lab/nii2dcm
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -23,23 +25,31 @@ input:
   - niftis:
       type: list
       description: NIfTI files to be converted to DICOM format
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - dicom:
       type: file
       description: Reference DICOM file (optional)
-      pattern: "*.dcm"
+      pattern: '*.dcm'
 
 output:
+- dicom_directory:
   - dicom_directory:
       type: directory
       description: Directory containing the DICOM files
-      pattern: "DICOM/"
+      pattern: DICOM/
 
+- versions:
   - versions:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
+
+- versions:
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: versions.yml
 
 authors:
-  - "@GuillaumeTh"
+- '@GuillaumeTh'

@@ -1,18 +1,20 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/yaml-schema.json
-name: "bundle_fixelafd"
-description: USE scilpy to compute mean apparent fiber density (AFD) and mean radial radial fODF (radfODF) maps along a bundle.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: bundle_fixelafd
+description: USE scilpy to compute mean apparent fiber density (AFD) and mean radial
+  radial fODF (radfODF) maps along a bundle.
 keywords:
-  - DWI
-  - AFD
-  - Fixel
+- DWI
+- AFD
+- Fixel
 tools:
-  - "Scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- Scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -20,30 +22,32 @@ input:
 
   - bundles:
       type: list
-      description: "List of bundles in .trk format."
-      pattern: "*.trk"
+      description: List of bundles in .trk format.
+      pattern: '*.trk'
 
   - fodf:
       type: file
-      description: "fODF file to extract fixel measurements from."
-      pattern: "*.nii.gz"
+      description: fODF file to extract fixel measurements from.
+      pattern: '*.nii.gz'
 
 output:
+- fixel_afd:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - fixel_afd:
+  - '*_afd_metric.nii.gz':
       type: list
-      description: "Mean Apparent Fiber Density (AFD) along the bundle."
-      pattern: "*_afd_metric.nii.gz"
+      description: Mean Apparent Fiber Density (AFD) along the bundle.
+      pattern: '*_afd_metric.nii.gz'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@grahamlittlephd"
+- '@grahamlittlephd'

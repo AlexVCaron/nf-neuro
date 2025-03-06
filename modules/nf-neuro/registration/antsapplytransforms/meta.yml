@@ -1,17 +1,18 @@
 ---
-name: "registration_antsapplytransforms"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: registration_antsapplytransforms
 description: register image from transform
 keywords:
-  - MRI
-  - registration
-  - medical imaging
+- MRI
+- registration
+- medical imaging
 tools:
-  - "ANTs":
-      description: "perform registration using transform as input"
-      homepage: "https://antsx.github.io/ANTsRCore/reference/antsApplyTransforms.html"
+- ANTs:
+    description: perform registration using transform as input
+    homepage: https://antsx.github.io/ANTsRCore/reference/antsApplyTransforms.html
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -20,39 +21,44 @@ input:
   - image:
       type: file
       description: Input image to register
-      pattern: "*.{nii.nii.gz}"
+      pattern: '*.{nii.nii.gz}'
 
   - reference:
       type: file
       description: Reference image for registration
-      pattern: "*.{nii.nii.gz}"
+      pattern: '*.{nii.nii.gz}'
 
   - warp:
       type: file
       description: Warp transformation file to warp image or trk.
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - affine:
       type: file
-      description: Affine or rigig transformation file to warp image or trk (*mat). If a rigid or affine transformation needs to be inverted before being applied, use antsApplyTransforms with the  -o Linear[inversedTransform,1], as this module does not handles it.
-      pattern: "*.mat"
+      description: Affine or rigig transformation file to warp image or trk (*mat).
+        If a rigid or affine transformation needs to be inverted before being applied,
+        use antsApplyTransforms with the  -o Linear[inversedTransform,1], as this
+        module does not handles it.
+      pattern: '*.mat'
 
 output:
+- warped_image:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - warped_image:
+  - '*.nii.nii.gz':
       type: file
       description: Warped image
-      pattern: "*.{nii.nii.gz}"
+      pattern: '*.{nii.nii.gz}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@scilus"
+- '@scilus'

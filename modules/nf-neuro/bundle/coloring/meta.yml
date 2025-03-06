@@ -1,17 +1,19 @@
 ---
-name: "bundle_coloring"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: bundle_coloring
 description: Assign color to bundles.
 keywords:
-  - Bundles
-  - Coloring
-  - Tractometry
+- Bundles
+- Coloring
+- Tractometry
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -20,26 +22,28 @@ input:
   - bundles:
       type: file
       description: Flatten list of trk files containing bundles to be colored.
-      pattern: "*.trk"
+      pattern: '*.trk'
 
 output:
+- bundles:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'sample1', single_end:false ]`
 
-  - bundles:
+  - '*_colored.trk':
       type: file
       description: Colored bundles file.
-      pattern: "*_colored.trk"
+      pattern: '*_colored.trk'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@gagnonanthony"
+- '@gagnonanthony'
 maintainers:
-  - "@gagnonanthony"
+- '@gagnonanthony'

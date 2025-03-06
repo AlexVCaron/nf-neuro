@@ -1,19 +1,20 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/scilus/nf-neuro/main/modules/meta-schema.json
-name: "bundle_recognize"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: bundle_recognize
 description: Extract bundles from one (or more) tractograms
 keywords:
-  - Diffusion MRI
-  - Tractogram
-  - Segmentation
-  - Bundles
+- Diffusion MRI
+- Tractogram
+- Segmentation
+- Bundles
 tools:
-  - "Scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- Scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -22,38 +23,40 @@ input:
   - tractograms:
       type: file
       description: Tractogram file(s) for bundle extraction
-      pattern: "*.trk"
+      pattern: '*.trk'
 
   - transform:
       type: file
       description: Transform matrix bringing the atlas to native space
-      pattern: "*.mat"
+      pattern: '*.mat'
 
   - config:
       type: file
       description: Bundle atlas configuration file
-      pattern: "*.json"
+      pattern: '*.json'
 
   - directory:
       type: directory
       description: Directory containing the reference atlas
 
 output:
+- bundles:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - bundles:
+  - '*.trk':
       type: file
       description: Segmented and cleaned bundles
-      pattern: "*.trk"
+      pattern: '*.trk'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@CHrlS98"
+- '@CHrlS98'

@@ -1,17 +1,19 @@
 ---
-name: "image_powderaverage"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: image_powderaverage
 description: Calculate the powder average of a 4D diffusion volume.
 keywords:
-  - DWI
-  - Powder Average
-  - BET
+- DWI
+- Powder Average
+- BET
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -20,36 +22,38 @@ input:
   - dwi:
       type: file
       description: Nifti DWI volume to compute the powder average on.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
   - bval:
       type: file
       description: b-values file.
-      pattern: "*.bval"
+      pattern: '*.bval'
 
   - mask:
       type: file
       description: Binary mask to apply on the DWI volume.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
 output:
+- pwd_avg:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'sample1', single_end:false ]`
 
-  - pwd_avg:
+  - '*.nii.gz':
       type: file
       description: Powder averaged DWI volume.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@gagnonanthony"
+- '@gagnonanthony'
 maintainers:
-  - "@gagnonanthony"
+- '@gagnonanthony'

@@ -1,18 +1,20 @@
 ---
-name: "tractogram_resample"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: tractogram_resample
 description: |
   Resample bundles' centroids.
 keywords:
-  - Bundles
-  - Centroids
-  - Streamlines
+- Bundles
+- Centroids
+- Streamlines
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -23,27 +25,29 @@ input:
       description: |
         List of tractograms to resample. If the tractogram is a centroid file
         with a specific number of points, please use the nb_points parameter.
-      pattern: "*.{trk}"
+      pattern: '*.{trk}'
 
 output:
+- tractograms:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'sample1', single_end:false ]`
 
-  - versions:
-      type: file
-      description: File containing software versions
-      pattern: "versions.yml"
-
-  - tractograms:
+  - '*_resampled.trk':
       type: file
       description: |
         Resampled tractograms.
-      pattern: "*_resampled.trk"
+      pattern: '*_resampled.trk'
+
+- versions:
+  - versions.yml:
+      type: file
+      description: File containing software versions
+      pattern: versions.yml
 
 authors:
-  - "@gagnonanthony"
+- '@gagnonanthony'
 maintainers:
-  - "@gagnonanthony"
+- '@gagnonanthony'

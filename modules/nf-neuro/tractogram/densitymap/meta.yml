@@ -1,17 +1,19 @@
 ---
-name: "tractogram_densitymap"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: tractogram_densitymap
 description: Compute density maps from tractograms
 keywords:
-  - Diffusion MRI
-  - Tractogram
-  - Density Map
+- Diffusion MRI
+- Tractogram
+- Density Map
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -20,26 +22,28 @@ input:
   - tractogram:
       type: file
       description: Tractogram file for density map computation
-      pattern: "*.trk"
+      pattern: '*.trk'
 
 output:
+- density_map:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - density_map:
+  - '*.nii.gz':
       type: file
       description: Computed density map
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@GuillaumeTh"
+- '@GuillaumeTh'
 maintainers:
-  - "@GuillaumeTh"
+- '@GuillaumeTh'

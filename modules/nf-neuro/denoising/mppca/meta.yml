@@ -1,20 +1,20 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/scilus/nf-neuro/main/modules/meta-schema.json
-name: "denoising_mppca"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: denoising_mppca
 description: denoise a dataset with the Marchenko-Pastur principal component analysis
 keywords:
-  - nifti
-  - denoising
-  - mppca
-  - mrtrix
-  - fsl
+- nifti
+- denoising
+- mppca
+- mrtrix
+- fsl
 tools:
-  - "MRtrix3":
-      description: "Toolbox for image processing, analysis and visualisation of dMRI."
-      homepage: "https://mrtrix.readthedocs.io/en/latest/"
+- MRtrix3:
+    description: Toolbox for image processing, analysis and visualisation of dMRI.
+    homepage: https://mrtrix.readthedocs.io/en/latest/
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -23,29 +23,31 @@ input:
   - dwi:
       type: file
       description: Nifti dwi file to denoise
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - mask:
       type: file
       description: Nifti mask file for the dwi, optional
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
 output:
+- image:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - image:
+  - '*_dwi_denoised.nii.gz':
       type: file
       description: Denoised Nifti image file
-      pattern: "*_dwi_denoised.{nii,nii.gz}"
+      pattern: '*_dwi_denoised.{nii,nii.gz}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@scilus"
+- '@scilus'

@@ -1,19 +1,19 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/scilus/nf-neuro/main/modules/meta-schema.json
-name: "preproc_gibbs"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: preproc_gibbs
 description: Remove Gibbs Ringing Artifacts
 keywords:
-  - correction
-  - Gibbs
-  - artefact
+- correction
+- Gibbs
+- artefact
 
 tools:
-  - "MRtrix3":
-      description: "Toolbox for image processing, analysis and visualisation of dMRI."
-      homepage: "https://mrtrix.readthedocs.io/en/latest/"
+- MRtrix3:
+    description: Toolbox for image processing, analysis and visualisation of dMRI.
+    homepage: https://mrtrix.readthedocs.io/en/latest/
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -22,24 +22,26 @@ input:
   - dwi:
       type: file
       description: Nifti image file to correct
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
 output:
+- dwi:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - dwi:
+  - '*.nii.gz':
       type: file
       description: DWI image Gibbs corrected
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@arnaudbore"
+- '@arnaudbore'

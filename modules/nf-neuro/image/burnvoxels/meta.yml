@@ -1,4 +1,6 @@
-name: "image_burnvoxels"
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: image_burnvoxels
 description: |
   1. **Burning Voxels**: The module takes binary masks and "burns" or imprints their voxels onto an anatomical image.
   This means that the areas defined by the masks are marked or labeled on the anatomical image.
@@ -13,22 +15,24 @@ description: |
 
   In summary, this module processes an anatomical image by applying binary masks to it, generating multiple labeled images as output.
 keywords:
-  - Image Processing
-  - Voxel Burning
-  - Mask Application
+- Image Processing
+- Voxel Burning
+- Mask Application
 tools:
-  - "ANTs":
-      description: "Advanced Normalization Tools (ANTs) for image processing."
-      homepage: "http://stnava.github.io/ANTs/"
-  - "MRtrix3":
-      description: "MRtrix3 is a software package for various types of diffusion imaging data, including diffusion-weighted, diffusion-tensor, and q-ball imaging."
-      homepage: "https://www.mrtrix.org/"
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- ANTs:
+    description: Advanced Normalization Tools (ANTs) for image processing.
+    homepage: http://stnava.github.io/ANTs/
+- MRtrix3:
+    description: MRtrix3 is a software package for various types of diffusion imaging
+      data, including diffusion-weighted, diffusion-tensor, and q-ball imaging.
+    homepage: https://www.mrtrix.org/
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -37,36 +41,45 @@ input:
   - masks:
       type: list
       description: List of binary masks to be burned onto the anatomical image.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
   - anat:
       type: file
       description: Anatomical image to burn the masks onto.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
 output:
+- all_masks_burned:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'sample1', single_end:false ]`
 
-  - all_masks_burned:
+  - '*.nii.gz':
       type: file
       description: Anatomical image with all masks burned onto it.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
-  - each_mask_burned:
+- each_mask_burned:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'sample1', single_end:false ]`
+
+  - '*.nii.gz':
       type: list
       description: Anatomical image with each mask burned onto it.
-      pattern: "*.nii.gz"
+      pattern: '*.nii.gz'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@GuillaumeTh"
+- '@GuillaumeTh'
 maintainers:
-  - "@GuillaumeTh"
+- '@GuillaumeTh'

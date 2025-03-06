@@ -1,22 +1,23 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/scilus/nf-neuro/main/modules/meta-schema.json
-name: "preproc_normalize"
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: preproc_normalize
 description: Normalize DWI using MRtrix3 (in WM)
 keywords:
-  - nifti
-  - normalise
-  - scilpy
-  - MRtrix3
+- nifti
+- normalise
+- scilpy
+- MRtrix3
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
-  - "MRtrix3":
-      description: "Toolbox for image processing, analysis and visualisation of dMRI."
-      homepage: "https://mrtrix.readthedocs.io/en/latest/"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
+- MRtrix3:
+    description: Toolbox for image processing, analysis and visualisation of dMRI.
+    homepage: https://mrtrix.readthedocs.io/en/latest/
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -25,44 +26,53 @@ input:
   - dwi:
       type: file
       description: Nifti image file to normalize
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - mask:
       type: file
       description: Nifti image file used to mask the input image
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - bval:
       type: file
       description: Text file containing b-values
-      pattern: "*.{.bval}"
+      pattern: '*.{.bval}'
 
   - bvec:
       type: file
       description: Text file containing b-vectors
-      pattern: "*.{.bvec}"
+      pattern: '*.{.bvec}'
 
 output:
+- dwi:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - dwi:
+  - '*_normalized.nii.gz':
       type: file
       description: Normalized Nifti image file
-      pattern: "*_normalized.{nii,nii.gz}"
+      pattern: '*_normalized.{nii,nii.gz}'
 
-  - mask:
+- mask:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*_mask.nii.gz':
       type: file
       description: Nifti image file mask
-      pattern: "*_mask.{nii,nii.gz}"
+      pattern: '*_mask.{nii,nii.gz}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@scilus"
+- '@scilus'

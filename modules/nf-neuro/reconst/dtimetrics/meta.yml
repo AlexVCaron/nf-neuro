@@ -1,18 +1,20 @@
-name: "reconst_dtimetrics"
-
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: reconst_dtimetrics
 description: Script to compute all of the Diffusion Tensor Imaging (DTI) metrics
 keywords:
-  - nifti
-  - DTI
-  - tensor
-  - scilpy
+- nifti
+- DTI
+- tensor
+- scilpy
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -21,173 +23,361 @@ input:
   - dwi:
       type: file
       description: Nifti DWI volume used to extract DTI metrics.
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - bval:
       type: file
       description: B-values in FSL format.
-      pattern: "*.bval"
+      pattern: '*.bval'
 
   - bvec:
       type: file
       description: B-vectors in FSL format.
-      pattern: "*.bvec"
+      pattern: '*.bvec'
 
   - b0mask:
       type: file
       description: Nifti b0 volume file used to mask the input image.
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
 output:
+- ad:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - ad:
+  - '*__ad.nii.gz':
       type: file
       description: Output filename for the axial diffusivity.
-      pattern: "*__ad.{nii,nii.gz}"
+      pattern: '*__ad.{nii,nii.gz}'
 
-  - evecs:
+- evecs:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evecs.nii.gz':
       type: file
       description: Output filename for the eigenvectors of the tensor.
-      pattern: "*__evecs.{nii,nii.gz}"
+      pattern: '*__evecs.{nii,nii.gz}'
 
-  - evecs_v1:
+- evecs_v1:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evecs_v1.nii.gz':
       type: file
       description: Output filename for the first eigenvector.
-      pattern: "*__evecs_v1.{nii,nii.gz}"
+      pattern: '*__evecs_v1.{nii,nii.gz}'
 
-  - evecs_v2:
+- evecs_v2:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evecs_v2.nii.gz':
       type: file
       description: Output filename for the second eigenvector.
-      pattern: "*__evecs_v2.{nii,nii.gz}"
+      pattern: '*__evecs_v2.{nii,nii.gz}'
 
-  - evecs_v3:
+- evecs_v3:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evecs_v3.nii.gz':
       type: file
       description: Output filename for the third eigenvector.
-      pattern: "*__evecs_v3.{nii,nii.gz}"
+      pattern: '*__evecs_v3.{nii,nii.gz}'
 
-  - evals:
+- evals:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evals.nii.gz':
       type: file
       description: Output filename for the eigenvalues of the tensor.
-      pattern: "*__evals.{nii,nii.gz}"
+      pattern: '*__evals.{nii,nii.gz}'
 
-  - evals_e1:
+- evals_e1:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evals_e1.nii.gz':
       type: file
       description: Output filename for the first eigenvalue.
-      pattern: "*__evals_e1.{nii,nii.gz}"
+      pattern: '*__evals_e1.{nii,nii.gz}'
 
-  - evals_e2:
+- evals_e2:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evals_e2.nii.gz':
       type: file
       description: Output filename for the second eigenvalue.
-      pattern: "*__evals_e2.{nii,nii.gz}"
+      pattern: '*__evals_e2.{nii,nii.gz}'
 
-  - evals_e3:
+- evals_e3:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__evals_e3.nii.gz':
       type: file
       description: Output filename for the third eigenvalue.
-      pattern: "*__evals_e3.{nii,nii.gz}"
+      pattern: '*__evals_e3.{nii,nii.gz}'
 
-  - fa:
+- fa:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__fa.nii.gz':
       type: file
       description: Output filename for the fractional anisotropy.
-      pattern: "*__fa.{nii,nii.gz}"
+      pattern: '*__fa.{nii,nii.gz}'
 
-  - ga:
+- ga:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__ga.nii.gz':
       type: file
       description: Output filename for the geodesic anisotropy.
-      pattern: "*__ga.{nii,nii.gz}"
+      pattern: '*__ga.{nii,nii.gz}'
 
-  - rgb:
+- rgb:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__rgb.nii.gz':
       type: file
       description: Output filename for the colored fractional anisotropy.
-      pattern: "*__rgb.{nii,nii.gz}"
+      pattern: '*__rgb.{nii,nii.gz}'
 
-  - md:
+- md:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__md.nii.gz':
       type: file
       description: Output filename for the mean diffusivity.
-      pattern: "*__md.{nii,nii.gz}"
+      pattern: '*__md.{nii,nii.gz}'
 
-  - mode:
+- mode:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__mode.nii.gz':
       type: file
       description: Output filename for the mode.
-      pattern: "*__mode.{nii,nii.gz}"
+      pattern: '*__mode.{nii,nii.gz}'
 
-  - norm:
+- norm:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__norm.nii.gz':
       type: file
       description: Output filename for the tensor norm.
-      pattern: "*__norm.{nii,nii.gz}"
+      pattern: '*__norm.{nii,nii.gz}'
 
-  - rd:
+- rd:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__rd.nii.gz':
       type: file
       description: Output filename for the radial diffusivity.
-      pattern: "*__rd.{nii,nii.gz}"
+      pattern: '*__rd.{nii,nii.gz}'
 
-  - tensor:
+- tensor:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__tensor.nii.gz':
       type: file
       description: Output filename for the tensor coefficients.
-      pattern: "*__tensor.{nii,nii.gz}"
+      pattern: '*__tensor.{nii,nii.gz}'
 
-  - nonphysical:
-      type: file
-      description: Output filename for the voxels with physically implausible
-        signals where the mean of b=0 images is below one or more
-        diffusion-weighted images.
-      pattern: "*__nonphysical.{nii,nii.gz}"
+- nonphysical:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
 
-  - pulsation_std_dwi:
+  - '*__nonphysical.nii.gz':
       type: file
-      description: Standard deviation map across all diffusion-weighted images.
+      description: Output filename for the voxels with physically implausible signals
+        where the mean of b=0 images is below one or more diffusion-weighted images.
+      pattern: '*__nonphysical.{nii,nii.gz}'
+
+- pulsation_std_dwi:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__pulsation_std_dwi.nii.gz':
+      type: file
+      description: Standard deviation map across all diffusion-weighted images. Shows
+        pulsation and misalignment artifacts.
+      pattern: '*__pulsation_std_dwi.{nii,nii.gz}'
+
+- pulsation_std_b0:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__pulsation_std_b0.nii.gz':
+      type: file
+      description: Standard deviation map across b=0 images if more than one is available.
         Shows pulsation and misalignment artifacts.
-      pattern: "*__pulsation_std_dwi.{nii,nii.gz}"
+      pattern: '*__pulsation_std_b0.{nii,nii.gz}'
 
-  - pulsation_std_b0:
-      type: file
-      description: Standard deviation map across b=0 images if more than one
-        is available. Shows pulsation and misalignment artifacts.
-      pattern: "*__pulsation_std_b0.{nii,nii.gz}"
+- residual:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
 
-  - residual:
+  - '*__residual.nii.gz':
       type: file
       description: Output filename for the map of the residual of the tensor fit.
-      pattern: "*__residual.{nii,nii.gz}"
+      pattern: '*__residual.{nii,nii.gz}'
 
-  - residual_iqr_residuals:
+- residual_iqr_residuals:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__residual_iqr_residuals.npy':
       type: file
-      description: Output filename for the interquartile range of the residual of the tensor fit.
-      pattern: "*__residual_iqr_residuals.npy"
+      description: Output filename for the interquartile range of the residual of
+        the tensor fit.
+      pattern: '*__residual_iqr_residuals.npy'
 
-  - residual_mean_residuals:
+- residual_mean_residuals:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__residual_mean_residuals.npy':
       type: file
       description: Output filename for the mean of the residual of the tensor fit.
-      pattern: "*__residual_mean_residuals.npy"
+      pattern: '*__residual_mean_residuals.npy'
 
-  - residual_q1_residuals:
+- residual_q1_residuals:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__residual_q1_residuals.npy':
       type: file
-      description: Output filename for the firt quartile of the residual of the tensor fit.
-      pattern: "*__residual_q1_residuals.npy"
+      description: Output filename for the firt quartile of the residual of the tensor
+        fit.
+      pattern: '*__residual_q1_residuals.npy'
 
-  - residual_q3_residuals:
+- residual_q3_residuals:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__residual_q3_residuals.npy':
       type: file
-      description: Output filename for the third quartile of the residual of the tensor fit.
-      pattern: "*__residual_q3_residuals.npy"
+      description: Output filename for the third quartile of the residual of the tensor
+        fit.
+      pattern: '*__residual_q3_residuals.npy'
 
-  - residual_residuals_stats:
+- residual_residuals_stats:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__residual_residuals_stats.png':
       type: file
-      description: Output filename for the all statistics of the residual of the tensor fit.
-      pattern: "*__residual_residuals_stats.png"
+      description: Output filename for the all statistics of the residual of the tensor
+        fit.
+      pattern: '*__residual_residuals_stats.png'
 
-  - residual_std_residuals:
+- residual_std_residuals:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*__residual_std_residuals.npy':
       type: file
-      description: Output filename for the standard deviation of the residual of the tensor fit.
-      pattern: "*__residual_std_residuals.npy"
+      description: Output filename for the standard deviation of the residual of the
+        tensor fit.
+      pattern: '*__residual_std_residuals.npy'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@scilus"
+- '@scilus'

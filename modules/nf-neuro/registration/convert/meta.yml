@@ -1,19 +1,23 @@
 ---
-name: "registration_convert"
-description: Freesurfer transform conversion tool. Default usage is aim at receiving freesurfer format and converting to ANTs (ITK). See lta_convert --help and mri_warp_convert --help for options.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: registration_convert
+description: Freesurfer transform conversion tool. Default usage is aim at receiving
+  freesurfer format and converting to ANTs (ITK). See lta_convert --help and mri_warp_convert
+  --help for options.
 keywords:
-  - Registration
-  - Brain imaging
-  - MRI
-  - Conversion
+- Registration
+- Brain imaging
+- MRI
+- Conversion
 tools:
-  - "Freesurfer":
-      description: "Freesurfer lta_convert (affine conversion) and mri_warp_convert (deform) tools for transform conversion"
-      homepage: "https://surfer.nmr.mgh.harvard.edu/"
-      documentation: "https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki"
+- Freesurfer:
+    description: Freesurfer lta_convert (affine conversion) and mri_warp_convert (deform)
+      tools for transform conversion
+    homepage: https://surfer.nmr.mgh.harvard.edu/
+    documentation: https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferWiki
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -21,50 +25,65 @@ input:
 
   - deform:
       type: file
-      description: Deform transform to convert. Default usage expects Freesurfer .mgz format from mri_synthmorph
-      pattern: "*.{nii,nii.gz,mgz,m3z}"
+      description: Deform transform to convert. Default usage expects Freesurfer .mgz
+        format from mri_synthmorph
+      pattern: '*.{nii,nii.gz,mgz,m3z}'
 
   - affine:
       type: file
-      description: Affine transform to convert. Default usage expects Freesurfer .lta format from mri_synthmorph
-      pattern: "*.{lta,txt,xfm,dat}"
+      description: Affine transform to convert. Default usage expects Freesurfer .lta
+        format from mri_synthmorph
+      pattern: '*.{lta,txt,xfm,dat}'
 
   - source:
       type: file
-      description: Moving Nifti volume used for registration. Defines source image geometry
-      pattern: "*.{nii,nii.gz}"
+      description: Moving Nifti volume used for registration. Defines source image
+        geometry
+      pattern: '*.{nii,nii.gz}'
 
   - target:
       type: file
-      description: Fixed Nifti volume used for registration. Defines target image geometry. (optional)
-      pattern: "*.{nii,nii.gz}"
+      description: Fixed Nifti volume used for registration. Defines target image
+        geometry. (optional)
+      pattern: '*.{nii,nii.gz}'
 
   - fs_license:
       type: file
-      description: The path to your FreeSurfer license. To get one, go to https://surfer.nmr.mgh.harvard.edu/registration.html. Optional. If you have already set your license as prescribed by Freesurfer (copied to a .license file in your $FREESURFER_HOME), this is not required.
-      pattern: "*.txt"
+      description: The path to your FreeSurfer license. To get one, go to https://surfer.nmr.mgh.harvard.edu/registration.html.
+        Optional. If you have already set your license as prescribed by Freesurfer
+        (copied to a .license file in your $FREESURFER_HOME), this is not required.
+      pattern: '*.txt'
 
 output:
+- deform_transform:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - deform_transform:
+  - '*.nii.gz':
       type: file
       description: Deform transform. Default usage outputs ANTs (ITK) format .nii.gz
-      pattern: "*.{nii,nii.gz,mgz,m3z}"
+      pattern: '*.{nii,nii.gz,mgz,m3z}'
 
-  - affine_transform:
+- affine_transform:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test', single_end:false ]`
+
+  - '*.dat':
       type: file
       description: Affine transform. Default usage outputs ANTs (ITK) format .txt
-      pattern: "*.{txt,lta,mat,dat}"
+      pattern: '*.{txt,lta,mat,dat}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@anroy1"
+- '@anroy1'

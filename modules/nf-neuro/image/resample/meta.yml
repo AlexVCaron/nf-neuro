@@ -1,18 +1,23 @@
 ---
-name: "image_resample"
-description: Script to resample a dataset to match the resolution of another reference dataset or to the resolution specified in argument. Needs either one of voxel_size, volume_size, iso_min or reference as parameter/input. Interpolation defaults as linear.
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: image_resample
+description: Script to resample a dataset to match the resolution of another reference
+  dataset or to the resolution specified in argument. Needs either one of voxel_size,
+  volume_size, iso_min or reference as parameter/input. Interpolation defaults as
+  linear.
 keywords:
-  - resample
-  - nifti
-  - volume
-  - scilpy
+- resample
+- nifti
+- volume
+- scilpy
 tools:
-  - "scilpy":
-      description: "The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing toolbox."
-      homepage: "https://github.com/scilus/scilpy.git"
+- scilpy:
+    description: The Sherbrooke Connectivity Imaging Lab (SCIL) Python dMRI processing
+      toolbox.
+    homepage: https://github.com/scilus/scilpy.git
 
 input:
-  - meta:
+- - meta:
       type: map
       description: |
         Groovy Map containing sample information
@@ -21,29 +26,31 @@ input:
   - image:
       type: file
       description: Nifti image file to resample to
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
   - ref:
       type: file
       description: Nifti reference image file
-      pattern: "*.{nii,nii.gz}"
+      pattern: '*.{nii,nii.gz}'
 
 output:
+- image:
   - meta:
       type: map
       description: |
         Groovy Map containing sample information
         e.g. `[ id:'test', single_end:false ]`
 
-  - image:
+  - '*_resampled.nii.gz':
       type: file
       description: Nifti image file resampled
-      pattern: "*_resampled.{nii,nii.gz}"
+      pattern: '*_resampled.{nii,nii.gz}'
 
-  - versions:
+- versions:
+  - versions.yml:
       type: file
       description: File containing software versions
-      pattern: "versions.yml"
+      pattern: versions.yml
 
 authors:
-  - "@scilus"
+- '@scilus'
