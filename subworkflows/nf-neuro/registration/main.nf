@@ -97,25 +97,27 @@ workflow REGISTRATION {
             DEFORM2DISP_BACKWARD ( REGISTRATION_EASYREG.out.backward_warp )
 
             ch_convert_easyreg_forward_warp = DEFORM2DISP_FORWARD.out.transformation
-                .map{ meta, transform -> [meta, [tag: "forward_warp"], transform] }
+                .map{ meta, transform -> [meta, [tag: "forward_warp"], transform] }.view{ "def2disp fwd ${it}" }
             ch_convert_easyreg_backward_warp = DEFORM2DISP_BACKWARD.out.transformation
-                .map{ meta, transform -> [meta, [tag: "backward_warp"], transform] }
+                .map{ meta, transform -> [meta, [tag: "backward_warp"], transform] }.view{ "def2disp bck ${it}" }
 
             ch_convert_easyreg = ch_convert_easyreg_forward_warp
                 .mix(ch_convert_easyreg_backward_warp)
-                .combine(ch_fixed_image, by: 0)
-                .combine(ch_moving_image, by: 0)
+                .combine(ch_fixed_image.view{ "fixed $it" }, by: 0)
+                .combine(ch_moving_image.view{ "moving $it" }, by: 0)
                 .map{ meta, tag, transform, fixed, moving ->
                     def extension = transform.name.tokenize('.')[1..-1].join(".")
+                    def is_forward = transform.name.contains("forward")
+                    def references = is_forward ? [moving, fixed] : [fixed, moving]
                     return [
                         meta + tag + [cache: meta],
                         transform,
-                        "ras",
+                        extension == "lta" ? "lta" : "ras",
                         "itk",
-                        extension == "lta" ? fixed : moving,
-                        [],
-                    ]}
-                .combine(ch_freesurfer_license)
+                        extension == "lta" ? references[1] : references[0],
+                        extension == "lta" ? references[0] : references[1],
+                    ]}.view{ "convertpack $it" }
+                .combine(ch_freesurfer_license.view{ "fslic $it" }).view{ "conveasyreg ${it}" }
 
             CONVERT_EASYREG ( ch_convert_easyreg )
             ch_versions = ch_versions.mix(CONVERT_EASYREG.out.versions.first())
@@ -193,13 +195,15 @@ workflow REGISTRATION {
                 .combine(ch_moving_image, by: 0)
                 .map{ meta, tag, transform, fixed, moving ->
                     def extension = transform.name.tokenize('.')[1..-1].join(".")
+                    def is_forward = transform.name.contains("forward")
+                    def references = is_forward ? [moving, fixed] : [fixed, moving]
                     return [
                         meta + tag + [cache: meta],
                         transform,
                         extension == "lta" ? "lta" : "ras",
                         "itk",
-                        extension == "lta" ? fixed : moving,
-                        [],
+                        extension == "lta" ? references[1] : references[0],
+                        extension == "lta" ? references[0] : references[1],
                     ]}
                 .combine(ch_freesurfer_license)
 
